@@ -9,6 +9,7 @@ flake8 = "==3.9.0"
 psycopg2-binary = "==2.8.6"
 djangorestframework = "==3.12"
 pillow = "==8.2.0"
+django-cors-headers = "==3.7.0"
 
 [dev-packages]
 

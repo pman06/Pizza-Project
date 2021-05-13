@@ -1,0 +1,38 @@
+[
+    {
+        "id": 6,
+        "pizzeria_name": "Pizzeria First Zone",
+        "city": "Las Vegas",
+        "zip_code": 0
+    },
+    {
+        "id": 5,
+        "pizzeria_name": "My Main Pizza place",
+        "city": "Abokuta",
+        "zip_code": 234039
+    },
+    {
+        "id": 4,
+        "pizzeria_name": "Pauls Plaze Pizza",
+        "city": "New York",
+        "zip_code": 0
+    },
+    {
+        "id": 3,
+        "pizzeria_name": "Ilupe Pizza Joint",
+        "city": "Agape",
+        "zip_code": 0
+    },
+    {
+        "id": 2,
+        "pizzeria_name": "Bangalee Pizza",
+        "city": "houston",
+        "zip_code": 720382
+    },
+    {
+        "id": 1,
+        "pizzeria_name": "Bravo Pizza",
+        "city": "Laurel",
+        "zip_code": 20707
+    }
+]
