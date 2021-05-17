@@ -2,13 +2,19 @@ import React, { Component } from 'react';
 
 class PizzeriaDetail extends Component{
   render(){
-    const p = this.props.p
-    return(
-      <div>
-          <h4>{p.id}</h4>
-          <h4>{p.pizzeria_name}</h4>
-          <h4>{p.city}</h4>
-          <h4>{p.zip_code}</h4>
+    const obj = this.props.pizzeriaDetail;
+    var detailStyle = {
+      color:"yellow",
+      border: "1px Solid yellow"
+    }
+    return( 
+      <div style={detailStyle}>
+          <h4>{obj.pizzeria_name}</h4>
+          <h5>  
+            Address: {obj.street} {obj.city} {obj.state} {obj.zip_code}
+          </h5>
+          <h6>Phone: {obj.phone_number} </h6>
+          <p>{obj.description} </p>
       </div>
     );
   }
