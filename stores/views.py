@@ -7,7 +7,7 @@ from stores.serializers import (PizzeriaListSerializer,
 
 class PizzeriaListAPIView(generics.ListAPIView):
     """List view for Pizzeria listing"""
-    queryset = Pizzeria.objects.all().order_by('-id')
+    queryset = Pizzeria.objects.all()
     serializer_class = PizzeriaListSerializer
 
 

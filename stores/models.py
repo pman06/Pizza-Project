@@ -26,5 +26,8 @@ class Pizzeria(models.Model):
     email = models.EmailField(max_length=255, blank=True)
     active = models.BooleanField(default=True)
 
+    class Meta:
+        ordering = ['-id']
+
     def __str__(self):
         return "%s, %s" % (self.pizzeria_name, self.city)

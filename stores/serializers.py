@@ -1,9 +1,11 @@
 from rest_framework import serializers
 from .models import Pizzeria
+from rest_framework.reverse import reverse
 
 
 class PizzeriaListSerializer(serializers.ModelSerializer):
     """Serializer class for list pizzeria view"""
+    absolute_url = serializers.SerializerMethodField()
 
     class Meta:
         model = Pizzeria
@@ -12,11 +14,17 @@ class PizzeriaListSerializer(serializers.ModelSerializer):
             'pizzeria_name',
             'city',
             'zip_code',
+            'absolute_url',
         ]
+
+    def get_absolute_url(self, obj):
+        return reverse('pizzeria:pizzeria_detail', args=(obj.pk,))
 
 
 class PizzeriaDetailSerializer(serializers.ModelSerializer):
     """Serializer class for detail pizzeria view"""
+    update = serializers.SerializerMethodField()
+    delete = serializers.SerializerMethodField()
 
     class Meta:
         model = Pizzeria
@@ -31,5 +39,13 @@ class PizzeriaDetailSerializer(serializers.ModelSerializer):
             'description',
             'logo_image',
             'email',
-            'active'
+            'active',
+            'update',
+            'delete',
         ]
+
+    def get_update(self, obj):
+        return reverse('pizzeria:pizzeria_update', args=(obj.pk,))
+
+    def get_delete(self, obj):
+        return reverse('pizzeria:pizzeria_delete', args=(obj.pk,))

@@ -1,8 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PizzeriaDetail from './pizzeriadetail';
+import PizzaForm from './pizzeriaform';
 import axios from 'axios';
 
-class PizzaList extends Component{
+
+class PizzaList extends React.Component{
   state = {
     pizzeriasData: [],
     pizzeria: [],
@@ -19,7 +21,7 @@ class PizzaList extends Component{
     this.showPizzeriaDetails= this.showPizzeriaDetails.bind(this);
   }
   getPizzaDetail(item){
-    axios.get("http://127.0.0.1:8000".concat(item.absolute_url))
+    axios.get(process.env.REACT_APP_URL.concat(item.absolute_url))
     .then((response) => { 
       this.setState({pizzeria: response.data})
     })
@@ -34,7 +36,7 @@ class PizzaList extends Component{
   }
 
   componentDidMount(){
-    axios.get("http://127.0.0.1:8000/api/")
+    axios.get(process.env.REACT_APP_URL.concat('/api/'))
     .then((response) =>{
       this.setState({pizzeriasData: response.data})
     })
@@ -44,11 +46,14 @@ class PizzaList extends Component{
   }
 
   render(){
+      var pizzaStyle = {
+        cursor : "pointer",
+      };
       return(
           <div>
+          <PizzaForm/>
             {this.state.pizzeriasData.map((item) =>{
-              {/* this.showPizzeriaDetails(item)*/}
-              return <h3 onClick={() => this.showPizzeriaDetails(item)} key={item.id}>{item.pizzeria_name}, {item.city}</h3>
+              return <h3  style = {pizzaStyle} onClick={() => this.showPizzeriaDetails(item)} key={item.id}>{item.pizzeria_name}, {item.city}</h3>
             })}
 
             {this.state.showComponent ? (
